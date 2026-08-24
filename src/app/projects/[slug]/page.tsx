@@ -65,7 +65,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
               <div>
                 <p className="text-[17px] leading-8 text-muted">{project.summary}</p>
-                {!isClient && (
+                {(project.github || project.live) && (
                   <div className="mt-6 flex flex-wrap gap-3">
                     {project.github && (
                       <Button href={project.github} variant="outline">

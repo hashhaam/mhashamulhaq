@@ -12,12 +12,11 @@ export const site = {
   availability: "Available for roles & freelance",
 
   subhead:
-    "Backend-first full-stack developer & AI graduate. In four months at Webix Solutions I've helped ship 40+ projects — APIs, SEO, integrations, and deployment.",
+    "Backend-first full-stack developer & AI graduate. At Webix Solutions I've contributed to a wide range of client projects — APIs, SEO, integrations, and deployment.",
 
   trajectory: [
     { month: "Feb", label: "backend" },
-    { month: "Mar", label: "team lead" },
-    { month: "Jun", label: "full-stack" },
+    { month: "Apr", label: "full-stack" },
   ],
 
   links: {
@@ -46,7 +45,7 @@ export const site = {
 
   /** Terminal "at a glance" summary card rows. */
   stats: [
-    { key: "projects_shipped", value: "40+", accent: true },
+    { key: "contributed_to", value: "many client projects", accent: true },
     { key: "time_at_webix", value: "4 months" },
     { key: "ecommerce", value: "2+ yrs · PK · UAE · USA" },
     { key: "focus", value: "backend · full-stack · growth" },
@@ -104,7 +103,7 @@ export const site = {
             "Moved into team leadership within a month, coordinating delivery, unblocking implementation, and keeping client work moving across parallel projects.",
         },
         {
-          date: "JUN",
+          date: "APR",
           title: "Full-stack developer",
           description:
             "Expanded across the product surface: Next.js interfaces, SEO, lead flows, integrations, infrastructure, and end-to-end releases.",
