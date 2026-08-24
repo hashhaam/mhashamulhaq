@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Github, Linkedin, Mail } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { Badge } from "@/components/ui/Badge";
+import { ContactIcon } from "@/components/ui/ContactIcon";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { ContactForm } from "@/components/sections/ContactForm";
@@ -17,16 +17,11 @@ export const metadata: Metadata = createPageMetadata({
   keywords: site.contact.metadata.keywords,
 });
 
-const icons = {
-  Email: Mail,
-  LinkedIn: Linkedin,
-  GitHub: Github,
-} as const;
-
 const hrefs = {
   Email: `mailto:${site.links.email}`,
   LinkedIn: site.links.linkedin,
   GitHub: site.links.github,
+  WhatsApp: `https://wa.me/${site.links.phone.replace(/\D/g, "")}`,
 } as const;
 
 export default function ContactPage() {
@@ -73,7 +68,6 @@ export default function ContactPage() {
 
                 <ul className="mt-7 space-y-px overflow-hidden rounded-card border border-line bg-line">
                   {channels.items.map((item) => {
-                    const Icon = icons[item.label];
                     const href = hrefs[item.label];
                     const external = href.startsWith("http");
 
@@ -85,9 +79,9 @@ export default function ContactPage() {
                           rel={external ? "noopener noreferrer" : undefined}
                           className="group flex min-w-0 items-center gap-4 px-5 py-4 transition-colors duration-200 hover:bg-bg-2"
                         >
-                          <Icon
+                          <ContactIcon
+                            name={item.label}
                             className="h-4 w-4 shrink-0 text-dim transition-colors group-hover:text-accent-text"
-                            aria-hidden="true"
                           />
                           <span className="min-w-0">
                             <span className="block font-mono text-[10.5px] tracking-[0.08em] text-dim uppercase">
