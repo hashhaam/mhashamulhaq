@@ -38,7 +38,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
           >
             {isClient ? projectsContent.labels.client : projectsContent.labels.personal}
           </span>
-          {isClient && (
+          {isClient && project.nda !== false && (
             <span className="rounded-full border border-line-2 px-2.5 py-1 font-mono text-[10px] tracking-[0.04em] text-muted">
               {projectsContent.labels.nda}
             </span>
@@ -75,7 +75,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             />
           </Link>
 
-          {!isClient && project.github && (
+          {project.github && (
             <a
               href={project.github}
               target="_blank"
@@ -87,7 +87,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             </a>
           )}
 
-          {!isClient && project.live && (
+          {project.live && (
             <a
               href={project.live}
               target="_blank"

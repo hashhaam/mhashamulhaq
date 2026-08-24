@@ -6,6 +6,8 @@ export type Project = {
   summary: string;
   tags: readonly string[];
   type: ProjectType;
+  /** Client work is treated as NDA/anonymized unless explicitly opted out. */
+  nda?: boolean;
   image: string;
   imageAlt: string;
   github?: string;
@@ -103,7 +105,9 @@ export const projects: readonly Project[] = [
     summary:
       "A job platform with authentication, branded transactional email, Supabase data, and a custom-domain setup.",
     tags: ["Next.js", "React", "Supabase", "Resend", "TypeScript"],
-    type: "personal",
+    type: "client",
+    // Built for a client, but shipped publicly under its own name with an open repo.
+    nda: false,
     image: placeholder,
     imageAlt: "Abstract amber interface placeholder for the Jooblie project",
     github: "https://github.com/hashhaam/Jooblie",
