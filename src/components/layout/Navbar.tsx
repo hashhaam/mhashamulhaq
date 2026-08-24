@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { BrandMark } from "@/components/ui/BrandMark";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { site } from "@/lib/site";
@@ -17,7 +18,7 @@ export function Navbar() {
           href="/"
           className="flex items-center gap-[9px] whitespace-nowrap font-display text-[18px] font-semibold tracking-[-0.02em] text-text sm:text-[20px]"
         >
-          <span className="h-[9px] w-[9px] rounded-full bg-accent" aria-hidden="true" />
+          <BrandMark className="h-7 w-7 sm:h-8 sm:w-8" priority />
           {site.name}
         </Link>
 

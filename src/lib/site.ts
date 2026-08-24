@@ -86,6 +86,12 @@ export const site = {
     menuLabel: "Open navigation menu",
     closeMenuLabel: "Close navigation menu",
   },
+  footer: {
+    navigationLabel: "Footer navigation",
+    exploreLabel: "Explore",
+    connectLabel: "Connect",
+    rights: "All rights reserved.",
+  },
 
   cta: {
     primary: { label: "Let's work together", href: "/contact" },
