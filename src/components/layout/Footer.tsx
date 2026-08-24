@@ -1,12 +1,42 @@
 import Link from "next/link";
+import {
+  BriefcaseBusiness,
+  Github,
+  Linkedin,
+  Mail,
+  MessageCircleMore,
+  UserRound,
+  type LucideIcon,
+} from "lucide-react";
+import { siWhatsapp } from "simple-icons";
 import { BrandMark } from "@/components/ui/BrandMark";
 import { Container } from "@/components/ui/Container";
 import { site } from "@/lib/site";
 
+const exploreIcons: Record<string, LucideIcon> = {
+  "/projects": BriefcaseBusiness,
+  "/about": UserRound,
+  "/contact": MessageCircleMore,
+};
+
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path d={siWhatsapp.path} fill="currentColor" />
+    </svg>
+  );
+}
+
 const socials = [
-  { label: "GitHub", href: site.links.github },
-  { label: "LinkedIn", href: site.links.linkedin },
-  { label: "Email", href: `mailto:${site.links.email}` },
+  { label: "GitHub", href: site.links.github, Icon: Github },
+  { label: "LinkedIn", href: site.links.linkedin, Icon: Linkedin },
+  { label: "Email", href: `mailto:${site.links.email}`, Icon: Mail },
+  {
+    label: "WhatsApp",
+    detail: site.links.phone,
+    href: `https://wa.me/${site.links.phone.replace(/\D/g, "")}`,
+    Icon: WhatsAppIcon,
+  },
 ];
 
 export function Footer() {
@@ -34,22 +64,23 @@ export function Footer() {
               {site.footer.exploreLabel}
             </h2>
             <ul className="space-y-3">
-              {site.nav.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="group inline-flex items-center gap-2 text-sm text-muted transition-colors duration-200 hover:text-text"
-                  >
-                    {item.label}
-                    <span
-                      className="transition-transform duration-200 group-hover:translate-x-0.5"
-                      aria-hidden="true"
+              {site.nav.map((item) => {
+                const Icon = exploreIcons[item.href];
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="group inline-flex items-center gap-2 text-sm text-muted transition-colors duration-200 hover:text-text"
                     >
-                      {"→"}
-                    </span>
-                  </Link>
-                </li>
-              ))}
+                      {item.label}
+                      <Icon
+                        className="h-4 w-4 text-accent-text transition-colors duration-200 group-hover:text-text"
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -68,13 +99,18 @@ export function Footer() {
                       rel={external ? "noopener noreferrer" : undefined}
                       className="group inline-flex items-center gap-2 text-sm text-muted transition-colors duration-200 hover:text-text"
                     >
-                      {social.label}
-                      <span
-                        className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                        aria-hidden="true"
-                      >
-                        {external ? "↗" : "→"}
+                      <span>
+                        {social.label}
+                        {social.detail ? (
+                          <span className="mt-0.5 block font-mono text-[10.5px] tracking-[-0.01em] text-muted">
+                            {social.detail}
+                          </span>
+                        ) : null}
                       </span>
+                      <social.Icon
+                        className="h-4 w-4 shrink-0 text-accent-text transition-colors duration-200 group-hover:text-text"
+                        aria-hidden="true"
+                      />
                     </a>
                   </li>
                 );
