@@ -348,6 +348,7 @@ export const site = {
         { label: "Email", value: "hashamulhaq068@gmail.com" },
         { label: "LinkedIn", value: "linkedin.com/in/hasham-ul-haq-2770b0248" },
         { label: "GitHub", value: "github.com/hashhaam" },
+        { label: "WhatsApp", value: "+923203487887" },
       ],
     },
     form: {

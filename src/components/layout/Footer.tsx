@@ -1,15 +1,12 @@
 import Link from "next/link";
 import {
   BriefcaseBusiness,
-  Github,
-  Linkedin,
-  Mail,
   MessageCircleMore,
   UserRound,
   type LucideIcon,
 } from "lucide-react";
-import { siWhatsapp } from "simple-icons";
 import { BrandMark } from "@/components/ui/BrandMark";
+import { ContactIcon } from "@/components/ui/ContactIcon";
 import { Container } from "@/components/ui/Container";
 import { site } from "@/lib/site";
 
@@ -19,31 +16,24 @@ const exploreIcons: Record<string, LucideIcon> = {
   "/contact": MessageCircleMore,
 };
 
-function WhatsAppIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
-      <path d={siWhatsapp.path} fill="currentColor" />
-    </svg>
-  );
-}
+const linkPreview = (href: string) => href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
-const socials = [
-  { label: "GitHub", href: site.links.github, Icon: Github },
-  { label: "LinkedIn", href: site.links.linkedin, Icon: Linkedin },
-  { label: "Email", href: `mailto:${site.links.email}`, Icon: Mail },
+const contactLinks = [
+  { label: "GitHub", preview: linkPreview(site.links.github), href: site.links.github },
+  { label: "LinkedIn", preview: linkPreview(site.links.linkedin), href: site.links.linkedin },
+  { label: "Email", preview: site.links.email, href: `mailto:${site.links.email}` },
   {
     label: "WhatsApp",
-    detail: site.links.phone,
+    preview: site.links.phone,
     href: `https://wa.me/${site.links.phone.replace(/\D/g, "")}`,
-    Icon: WhatsAppIcon,
   },
-];
+] as const;
 
 export function Footer() {
   return (
     <footer className="border-t border-line bg-card/30">
       <Container className="py-12 sm:py-14">
-        <div className="grid gap-10 border-b border-line pb-10 md:grid-cols-[1.5fr_0.7fr_0.8fr] md:gap-12">
+        <div className="grid gap-10 border-b border-line pb-10 md:grid-cols-[1.05fr_0.45fr_1.1fr] md:gap-12">
           <div>
             <Link
               href="/"
@@ -70,13 +60,13 @@ export function Footer() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="group inline-flex items-center gap-2 text-sm text-muted transition-colors duration-200 hover:text-text"
+                      className="group inline-flex items-center gap-2.5 text-sm text-muted transition-colors duration-200 hover:text-text"
                     >
-                      {item.label}
                       <Icon
-                        className="h-4 w-4 text-accent-text transition-colors duration-200 group-hover:text-text"
+                        className="h-4 w-4 shrink-0 text-accent-text transition-colors duration-200 group-hover:text-text"
                         aria-hidden="true"
                       />
+                      <span>{item.label}</span>
                     </Link>
                   </li>
                 );
@@ -89,28 +79,23 @@ export function Footer() {
               {site.footer.connectLabel}
             </h2>
             <ul className="space-y-3">
-              {socials.map((social) => {
-                const external = social.href.startsWith("http");
+              {contactLinks.map((contact) => {
+                const external = contact.href.startsWith("http");
                 return (
-                  <li key={social.label}>
+                  <li key={contact.label}>
                     <a
-                      href={social.href}
+                      href={contact.href}
                       target={external ? "_blank" : undefined}
                       rel={external ? "noopener noreferrer" : undefined}
-                      className="group inline-flex items-center gap-2 text-sm text-muted transition-colors duration-200 hover:text-text"
+                      aria-label={`${contact.label}: ${contact.preview}`}
+                      className="group flex min-w-0 items-center gap-3 text-muted transition-colors duration-200 hover:text-text"
                     >
-                      <span>
-                        {social.label}
-                        {social.detail ? (
-                          <span className="mt-0.5 block font-mono text-[10.5px] tracking-[-0.01em] text-muted">
-                            {social.detail}
-                          </span>
-                        ) : null}
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[8px] border border-line bg-bg/60 text-accent-text transition-colors duration-200 group-hover:border-line-2 group-hover:text-text">
+                        <ContactIcon name={contact.label} className="h-4 w-4" />
                       </span>
-                      <social.Icon
-                        className="h-4 w-4 shrink-0 text-accent-text transition-colors duration-200 group-hover:text-text"
-                        aria-hidden="true"
-                      />
+                      <span className="min-w-0 break-all font-mono text-[11.5px] leading-5">
+                        {contact.preview}
+                      </span>
                     </a>
                   </li>
                 );
