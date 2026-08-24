@@ -1,19 +1,31 @@
 import type { Metadata } from "next";
 import { Reveal } from "@/components/motion/Reveal";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { ProjectsGrid } from "@/components/sections/ProjectsGrid";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { projects, projectsContent } from "@/lib/data/projects";
+import { breadcrumbSchema } from "@/lib/schema";
+import { createPageMetadata } from "@/lib/seo";
+import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: projectsContent.metadata.title,
   description: projectsContent.metadata.description,
-};
+  path: "/projects",
+  keywords: projectsContent.metadata.keywords,
+});
 
 export default function ProjectsPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: site.seo.breadcrumbs.home, path: "/" },
+          { name: projectsContent.metadata.title, path: "/projects" },
+        ])}
+      />
       <Section aria-label={projectsContent.intro.eyebrow} className="pt-16 sm:pt-24">
         <Container>
           <Reveal mode="inView">
@@ -34,7 +46,7 @@ export default function ProjectsPage() {
 
       <Section aria-label={projectsContent.metadata.title} className="border-t border-line pt-12">
         <Container>
-          <ProjectsGrid projects={projects} />
+          <ProjectsGrid projects={projects} priorityFirst />
         </Container>
       </Section>
 

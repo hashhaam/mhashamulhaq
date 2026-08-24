@@ -37,7 +37,7 @@ export function Footer() {
               );
             })}
           </ul>
-          <p className="font-mono text-[12px] text-dim">
+          <p className="font-mono text-[12px] text-muted">
             © {new Date().getFullYear()} {site.name}
           </p>
         </div>

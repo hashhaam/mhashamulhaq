@@ -6,10 +6,59 @@
 
 export const site = {
   name: "M Hasham Ul Haq",
+  handle: "mhashamulhaq",
+  url: "https://mhashamulhaq.com",
+  language: "en",
   role: "Full-Stack Developer & AI Graduate",
   tagline: "I build fast, SEO-ready web products that convert.",
   location: "Faisalabad, Pakistan",
   availability: "Available for roles & freelance",
+
+  seo: {
+    title: "M Hasham Ul Haq · Full-Stack Developer & AI Graduate",
+    description:
+      "Backend-first full-stack developer and AI graduate building fast, SEO-ready products, APIs, integrations, and dependable deployments.",
+    keywords: [
+      "M Hasham Ul Haq",
+      "full-stack developer",
+      "backend developer",
+      "Next.js developer",
+      "FastAPI developer",
+      "AI graduate",
+      "Faisalabad developer",
+      "Pakistan software developer",
+    ],
+    lastUpdated: "2026-08-24",
+    openGraph: {
+      eyebrow: "Backend-first full-stack developer",
+      title: "Products built to perform—and convert.",
+      description: "Full-stack engineering · APIs · AI · SEO · deployment",
+      alt: "M Hasham Ul Haq — Full-Stack Developer and AI Graduate",
+    },
+    breadcrumbs: {
+      home: "Home",
+      projects: "Projects",
+    },
+    schema: {
+      addressLocality: "Faisalabad",
+      addressCountry: "PK",
+      alumniOf: "National Textile University",
+    },
+  },
+
+  accessibility: {
+    skipToContent: "Skip to main content",
+  },
+
+  notFound: {
+    metadataTitle: "Page not found",
+    eyebrow: "404 · Route not found",
+    title: "This page left the build.",
+    description:
+      "The address may have changed, or the page may never have existed. The main portfolio and project archive are still here.",
+    primary: { label: "Back to home", href: "/" },
+    secondary: { label: "View projects", href: "/projects" },
+  },
 
   subhead:
     "Backend-first full-stack developer & AI graduate. At Webix Solutions I've contributed to a wide range of client projects — APIs, SEO, integrations, and deployment.",
@@ -40,7 +89,6 @@ export const site = {
   cta: {
     primary: { label: "Let's work together", href: "/contact" },
     work: { label: "View work", href: "/projects" },
-    cv: { label: "Download CV", href: "/cv.pdf" },
   },
 
   /** Terminal "at a glance" summary card rows. */
@@ -169,6 +217,11 @@ export const site = {
       title: "About",
       description:
         "The path from an AI degree to backend engineering, team leadership, full-stack delivery, and growth-focused product work.",
+      keywords: [
+        "M Hasham Ul Haq experience",
+        "AI graduate",
+        "full-stack developer journey",
+      ],
     },
     intro: {
       eyebrow: "About",
@@ -272,6 +325,11 @@ export const site = {
       title: "Contact",
       description:
         "Get in touch about full-stack roles, backend-heavy product work, or focused freelance engagements.",
+      keywords: [
+        "hire full-stack developer",
+        "freelance Next.js developer",
+        "backend developer contact",
+      ],
     },
     eyebrow: "Contact",
     title: "Tell me what you’re building.",

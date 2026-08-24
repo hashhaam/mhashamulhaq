@@ -4,10 +4,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Github } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { getProjectBySlug, projects, projectsContent } from "@/lib/data/projects";
+import { projectPageSchema } from "@/lib/schema";
+import { createPageMetadata } from "@/lib/seo";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -25,10 +28,12 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     return {};
   }
 
-  return {
+  return createPageMetadata({
     title: project.title,
     description: project.summary,
-  };
+    path: `/projects/${project.slug}`,
+    keywords: project.stack,
+  });
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
@@ -43,6 +48,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <>
+      <JsonLd data={projectPageSchema(project)} />
       <Section aria-label={project.title} className="pt-12 sm:pt-16">
         <Container>
           <Reveal mode="inView">

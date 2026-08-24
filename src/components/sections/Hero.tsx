@@ -18,16 +18,16 @@ export function Hero() {
             </Badge>
           </Reveal>
 
-          <Reveal delay={0.25}>
+          <Reveal delay={0.25} critical>
             <h1 className="mb-6 font-display text-[clamp(38px,6vw,62px)] font-semibold leading-[1.04] tracking-[-0.03em]">
               I build fast, SEO-ready web products that{" "}
               <span className="text-accent-text">convert.</span>
             </h1>
           </Reveal>
 
-          <Reveal delay={0.35}>
+          <Reveal delay={0.35} critical>
             <p className="mb-[22px] max-w-[33ch] text-[18px] text-muted">{site.subhead}</p>
-            <p className="mb-[34px] font-mono text-[12.5px] tracking-[0.01em] text-dim">
+            <p className="mb-[34px] font-mono text-[12.5px] tracking-[0.01em] text-muted">
               {site.trajectory.map((step, i) => (
                 <Fragment key={step.month}>
                   {i > 0 && <span className="px-1">{"→"}</span>}
@@ -48,9 +48,6 @@ export function Hero() {
                   {"→"}
                 </span>
               </Button>
-              <Button href={site.cta.cv.href} variant="ghost" size="lg">
-                {site.cta.cv.label}
-              </Button>
             </div>
           </Reveal>
         </div>
@@ -62,11 +59,11 @@ export function Hero() {
               <span className="h-[11px] w-[11px] rounded-full border border-line-2" aria-hidden="true" />
               <span className="h-[11px] w-[11px] rounded-full border border-line-2" aria-hidden="true" />
               <span className="h-[11px] w-[11px] rounded-full border border-accent bg-accent" aria-hidden="true" />
-              <span className="ml-1.5 text-[12px] text-dim">mhashamulhaq — at a glance</span>
+              <span className="ml-1.5 text-[12px] text-muted">mhashamulhaq — at a glance</span>
             </div>
 
             <div className="px-[18px] pt-[18px] pb-5">
-              <div className="mb-[14px] text-[12.5px] text-dim">{"// the short version"}</div>
+              <div className="mb-[14px] text-[12.5px] text-muted">{"// the short version"}</div>
               {site.stats.map((row, i) => (
                 <div
                   key={row.key}
@@ -95,7 +92,7 @@ export function Hero() {
       {/* Tech stack row */}
       <Reveal delay={0.6}>
         <div className="flex flex-wrap items-center gap-x-[22px] gap-y-[10px] border-t border-line pt-[26px] pb-[60px]">
-          <span className="mr-2 font-mono text-[11.5px] tracking-[0.04em] text-dim">STACK</span>
+          <span className="mr-2 font-mono text-[11.5px] tracking-[0.04em] text-muted">STACK</span>
           {site.stack.map((tech) => (
             <span
               key={tech}
