@@ -1,20 +1,31 @@
 import type { Metadata } from "next";
 import { Reveal } from "@/components/motion/Reveal";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { breadcrumbSchema } from "@/lib/schema";
+import { createPageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: site.about.metadata.title,
   description: site.about.metadata.description,
-};
+  path: "/about",
+  keywords: site.about.metadata.keywords,
+});
 
 export default function AboutPage() {
   const { intro, journey, capabilities, approach, closing } = site.about;
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: site.seo.breadcrumbs.home, path: "/" },
+          { name: site.about.metadata.title, path: "/about" },
+        ])}
+      />
       <Section aria-label={intro.eyebrow} className="pt-16 sm:pt-24">
         <Container>
           <Reveal mode="inView">

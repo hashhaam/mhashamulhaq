@@ -1,9 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { seoTheme } from "@/lib/seo";
+import { globalSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 const display = Bricolage_Grotesque({
@@ -28,19 +31,60 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mhashamulhaq.com"),
+  metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} · ${site.role}`,
+    default: site.seo.title,
     template: `%s · ${site.name}`,
   },
-  description: site.subhead,
+  description: site.seo.description,
+  applicationName: site.name,
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  publisher: site.name,
+  category: "technology",
+  keywords: [...site.seo.keywords],
+  alternates: {
+    canonical: "/",
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: "website",
-    title: `${site.name} · ${site.role}`,
-    description: site.subhead,
+    url: "/",
+    title: site.seo.title,
+    description: site.seo.description,
     siteName: site.name,
     locale: "en_US",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: site.seo.title,
+    description: site.seo.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  colorScheme: "dark light",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: seoTheme.background },
+    { media: "(prefers-color-scheme: light)", color: seoTheme.lightBackground },
+  ],
 };
 
 export default function RootLayout({
@@ -55,9 +99,18 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
       <body className="bg-bg text-text font-body antialiased">
+        <a
+          href="#main-content"
+          className="fixed top-3 left-3 z-[100] -translate-y-20 rounded-card bg-accent px-4 py-2 font-mono text-[12px] font-medium text-accent-ink transition-transform focus:translate-y-0"
+        >
+          {site.accessibility.skipToContent}
+        </a>
+        <JsonLd data={globalSchema()} />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Navbar />
-          <main>{children}</main>
+          <main id="main-content" tabIndex={-1}>
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>

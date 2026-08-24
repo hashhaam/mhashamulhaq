@@ -6,17 +6,67 @@
 
 export const site = {
   name: "M Hasham Ul Haq",
+  handle: "mhashamulhaq",
+  url: "https://mhashamulhaq.com",
+  language: "en",
   role: "Full-Stack Developer & AI Graduate",
-  tagline: "I build fast, SEO-ready web products that convert.",
+  tagline: "I build production web apps, end to end.",
   location: "Faisalabad, Pakistan",
   availability: "Available for roles & freelance",
 
+  seo: {
+    title: "M Hasham Ul Haq · Full-Stack Developer & AI Graduate",
+    description:
+      "Full-stack developer and AI graduate building production web apps end to end, from APIs and databases to AI features, CI/CD, and deployment.",
+    keywords: [
+      "M Hasham Ul Haq",
+      "full-stack developer",
+      "backend developer",
+      "Next.js developer",
+      "FastAPI developer",
+      "AI graduate",
+      "Faisalabad developer",
+      "Pakistan software developer",
+    ],
+    lastUpdated: "2026-08-24",
+    openGraph: {
+      eyebrow: "Full-stack developer & AI graduate",
+      title: "Production web apps, end to end.",
+      description: "Full-stack engineering · APIs · databases · AI · deployment",
+      alt: "M Hasham Ul Haq — Full-Stack Developer and AI Graduate",
+    },
+    breadcrumbs: {
+      home: "Home",
+      projects: "Projects",
+    },
+    schema: {
+      addressLocality: "Faisalabad",
+      addressCountry: "PK",
+      alumniOf: "National Textile University",
+    },
+  },
+
+  accessibility: {
+    skipToContent: "Skip to main content",
+  },
+
+  notFound: {
+    metadataTitle: "Page not found",
+    eyebrow: "404 · Route not found",
+    title: "This page left the build.",
+    description:
+      "The address may have changed, or the page may never have existed. The main portfolio and project archive are still here.",
+    primary: { label: "Back to home", href: "/" },
+    secondary: { label: "View projects", href: "/projects" },
+  },
+
   subhead:
-    "Backend-first full-stack developer & AI graduate. At Webix Solutions I've contributed to a wide range of client projects — APIs, SEO, integrations, and deployment.",
+    "Full-stack developer (MERN, Next.js) and AI graduate. Over the past 7 months at Webix Solutions I've contributed to a wide range of client projects, owning everything from APIs and databases to deployment and CI/CD. I also build AI features with Python and FastAPI when a product needs them.",
 
   trajectory: [
     { month: "Feb", label: "backend" },
     { month: "Apr", label: "full-stack" },
+    { month: "team", label: "lead" },
   ],
 
   links: {
@@ -40,16 +90,15 @@ export const site = {
   cta: {
     primary: { label: "Let's work together", href: "/contact" },
     work: { label: "View work", href: "/projects" },
-    cv: { label: "Download CV", href: "/cv.pdf" },
   },
 
   /** Terminal "at a glance" summary card rows. */
   stats: [
-    { key: "contributed_to", value: "many client projects", accent: true },
-    { key: "time_at_webix", value: "4 months" },
-    { key: "ecommerce", value: "2+ yrs · PK · UAE · USA" },
-    { key: "focus", value: "backend · full-stack · growth" },
+    { key: "contributed_to", value: "25+ projects", accent: true },
+    { key: "time_at_webix", value: "7 months" },
+    { key: "focus", value: "full-stack · backend · AI features" },
     { key: "degree", value: "BS Artificial Intelligence, NTU" },
+    { key: "also", value: "e-commerce · 2+ yrs" },
   ],
 
   stack: [
@@ -70,9 +119,9 @@ export const site = {
     stats: {
       eyebrow: "Track record",
       items: [
-        { value: "40+", label: "projects contributed to" },
-        { value: "2+ yrs", label: "e-commerce & growth" },
-        { value: "3 markets", label: "Pakistan · UAE · USA" },
+        { value: "25+", label: "projects contributed to" },
+        { value: "7 months", label: "at Webix Solutions" },
+        { value: "AI features", label: "Python · FastAPI" },
         { value: "BS AI", label: "National Textile University" },
       ],
     },
@@ -169,6 +218,11 @@ export const site = {
       title: "About",
       description:
         "The path from an AI degree to backend engineering, team leadership, full-stack delivery, and growth-focused product work.",
+      keywords: [
+        "M Hasham Ul Haq experience",
+        "AI graduate",
+        "full-stack developer journey",
+      ],
     },
     intro: {
       eyebrow: "About",
@@ -272,6 +326,11 @@ export const site = {
       title: "Contact",
       description:
         "Get in touch about full-stack roles, backend-heavy product work, or focused freelance engagements.",
+      keywords: [
+        "hire full-stack developer",
+        "freelance Next.js developer",
+        "backend developer contact",
+      ],
     },
     eyebrow: "Contact",
     title: "Tell me what you’re building.",

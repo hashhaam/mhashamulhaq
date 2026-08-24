@@ -23,6 +23,8 @@ export const projectsContent = {
     title: "Projects",
     description:
       "Personal products and anonymized client work across full-stack development, AI, SEO, integrations, and deployment.",
+    keywords: ["full-stack projects", "Next.js projects", "AI projects", "backend case studies"],
+    socialAlt: "Project case study by M Hasham Ul Haq",
   },
   intro: {
     eyebrow: "Selected work",

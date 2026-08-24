@@ -5,12 +5,17 @@ import { Badge } from "@/components/ui/Badge";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
+import { createPageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: site.contact.metadata.title,
   description: site.contact.metadata.description,
-};
+  path: "/contact",
+  keywords: site.contact.metadata.keywords,
+});
 
 const icons = {
   Email: Mail,
@@ -29,6 +34,12 @@ export default function ContactPage() {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: site.seo.breadcrumbs.home, path: "/" },
+          { name: site.contact.metadata.title, path: "/contact" },
+        ])}
+      />
       <Section aria-label={eyebrow} className="pt-16 sm:pt-24">
         <Container>
           <Reveal mode="inView">

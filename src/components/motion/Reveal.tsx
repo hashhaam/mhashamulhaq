@@ -9,13 +9,21 @@ type RevealProps = {
   delay?: number;
   className?: string;
   mode?: "load" | "inView";
+  /** Keep above-the-fold content paintable while retaining its translate reveal. */
+  critical?: boolean;
 };
 
 /**
  * Fade + rise on load or when scrolled into view. Staggerable via `delay`.
  * Honors prefers-reduced-motion by rendering content in its final state.
  */
-export function Reveal({ children, delay = 0, className, mode = "load" }: RevealProps) {
+export function Reveal({
+  children,
+  delay = 0,
+  className,
+  mode = "load",
+  critical = false,
+}: RevealProps) {
   const reduceMotion = useReducedMotion();
 
   if (reduceMotion) {
@@ -39,7 +47,7 @@ export function Reveal({ children, delay = 0, className, mode = "load" }: Reveal
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: critical ? 1 : 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay, ease: [0.22, 0.61, 0.36, 1] }}
     >
