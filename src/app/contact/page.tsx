@@ -50,9 +50,9 @@ export default function ContactPage() {
             </div>
           </Reveal>
 
-          <div className="mt-12 grid gap-8 lg:mt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
-            <Reveal mode="inView" delay={0.12}>
-              <div>
+          <div className="mt-12 grid min-w-0 gap-8 lg:mt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+            <Reveal mode="inView" delay={0.12} className="min-w-0">
+              <div className="min-w-0">
                 <p className="mb-3 font-mono text-[11px] tracking-[0.08em] text-dim">
                   {channels.eyebrow}
                 </p>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                           href={href}
                           target={external ? "_blank" : undefined}
                           rel={external ? "noopener noreferrer" : undefined}
-                          className="group flex items-center gap-4 px-5 py-4 transition-colors duration-200 hover:bg-bg-2"
+                          className="group flex min-w-0 items-center gap-4 px-5 py-4 transition-colors duration-200 hover:bg-bg-2"
                         >
                           <Icon
                             className="h-4 w-4 shrink-0 text-dim transition-colors group-hover:text-accent-text"
@@ -98,13 +98,13 @@ export default function ContactPage() {
               </div>
             </Reveal>
 
-            <Reveal mode="inView" delay={0.18}>
+            <Reveal mode="inView" delay={0.18} className="min-w-0">
               <ContactForm />
               <p className="mt-5 font-mono text-[11.5px] leading-6 text-dim">
                 {form.fallbackPrefix}{" "}
                 <a
                   href={`mailto:${site.links.email}`}
-                  className="text-muted underline decoration-line-2 underline-offset-4 transition-colors hover:text-accent-text"
+                  className="break-all text-muted underline decoration-line-2 underline-offset-4 transition-colors hover:text-accent-text"
                 >
                   {site.links.email}
                 </a>
