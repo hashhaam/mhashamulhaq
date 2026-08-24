@@ -40,7 +40,7 @@ export const projectsContent = {
   },
   labels: {
     personal: "Personal project",
-    client: "Client work",
+    client: "Client project",
     nda: "NDA",
     details: "View case study",
     github: "GitHub",
@@ -98,6 +98,24 @@ export const projects: readonly Project[] = [
     stack: ["Python", "Streamlit", "face-recognition", "Pillow", "EXIF"],
     outcome:
       "A focused photo-discovery tool that reduces a manual gallery search to a face-based matching workflow.",
+  },
+  {
+    slug: "siamese-network-image-similarity",
+    title: "Siamese Network for Image Similarity",
+    summary:
+      "A deep-learning model that scores how similar two images are, exported to ONNX for lightweight inference.",
+    tags: ["Python", "TensorFlow", "Keras", "ONNX", "Deep Learning"],
+    type: "personal",
+    image: placeholder,
+    imageAlt: "Abstract amber interface placeholder for the Siamese network project",
+    github: "https://github.com/hashhaam/siamese-network-for-image-similarity",
+    problem:
+      "Deciding whether two images depict the same subject needs a model that learns a similarity measure directly, rather than predicting from a fixed set of class labels.",
+    role:
+      "Trained a Siamese neural network for pairwise image comparison, caught and fixed a data-leakage bug that was inflating the reported results, and optimized the trained model for deployment by exporting it to ONNX.",
+    stack: ["Python", "TensorFlow", "Keras", "ONNX", "NumPy"],
+    outcome:
+      "Around 99% accuracy on a fully held-out test set, with the exported model reduced from 17MB to about 2MB so it runs without a heavy deep-learning framework.",
   },
   {
     slug: "jooblie",

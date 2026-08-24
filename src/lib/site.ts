@@ -168,6 +168,38 @@ export const site = {
       href: "/contact",
     },
   },
+
+  contact: {
+    metadata: {
+      title: "Contact",
+      description:
+        "Get in touch about full-stack roles, backend-heavy product work, or focused freelance engagements.",
+    },
+    eyebrow: "Contact",
+    title: "Tell me what you’re building.",
+    lead: "I’m open to full-stack roles and freelance work. Send a short note about the role or project and I’ll get back to you.",
+    channels: {
+      eyebrow: "Direct",
+      title: "Reach me here",
+      items: [
+        { label: "Email", value: "hashamulhaq068@gmail.com" },
+        { label: "LinkedIn", value: "linkedin.com/in/hasham-ul-haq-2770b0248" },
+        { label: "GitHub", value: "github.com/hashhaam" },
+      ],
+    },
+    form: {
+      eyebrow: "Send a message",
+      fields: {
+        name: { label: "name", placeholder: "Your name" },
+        email: { label: "email", placeholder: "you@company.com" },
+        message: { label: "message", placeholder: "A little about the role or project…" },
+      },
+      submit: "Send message",
+      subjectPrefix: "Portfolio enquiry",
+      note: "Sending opens your email client with the message ready to go.",
+      fallbackPrefix: "Prefer to write directly?",
+    },
+  },
 } as const;
 
 export type Site = typeof site;
