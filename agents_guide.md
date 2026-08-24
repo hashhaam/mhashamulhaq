@@ -169,7 +169,7 @@ Next.js 15 scaffold, design tokens (both themes), next-themes theming (no flash,
 - `/projects/[slug]/page.tsx` detail page: problem · role · stack · outcome, screenshots (placeholder if none), links. Use `generateStaticParams` from the data; export per-project `metadata`.
 - Add a "Featured work" preview (3 projects) to Home (can also land in Phase 3).
 
-### ⬜ Phase 3 — Contact + remaining Home sections
+### ✅ Phase 3 — Contact + remaining Home sections (DONE)
 **Contact (`/contact`):**
 - Form via react-hook-form + zod: name, email, message, optional company/budget, + hidden honeypot. No raw HTML `<form>` action — use a Server Action.
 - Server Action: validate (zod) → send email via **Resend** to `CONTACT_TO_EMAIL` → insert lead into **Supabase**. Basic rate-limit. Clear success/error UI states.
@@ -210,7 +210,7 @@ Next.js 15 scaffold, design tokens (both themes), next-themes theming (no flash,
 
 - **2026-06 — Phase 1 complete.** Foundation + Hero on `feat/phase-1-foundation`, PR open/merged. Stack: Next 15, Tailwind v4, next-themes, framer-motion, lucide-react. Build clean; both themes verified against mockup.
 - **2026-06-21 — Phase 2 complete.** About journey, capabilities, approach, and CTA; typed personal + anonymized client project data; reusable cards; projects grid; eight static detail routes; and a three-project Home preview on `feat/phase-2`. Token-matched screenshot placeholder added until final project media is supplied. Build clean and responsive dark/light browser verification completed.
-- **Phase 3 — pending.**
+- **2026-08-24 — Phase 3 complete.** Production contact flow with react-hook-form + shared zod validation, honeypot, best-effort IP rate limiting, Resend delivery, and Supabase lead storage; migration includes RLS with anonymous insert-only access. Home now includes the Stats, About, Skills, Services, Testimonials placeholder, and Contact CTA sections with crisp Simple Icons SVGs. Build/lint clean; responsive dark/light browser verification completed on `feat/phase-3`.
 - **Phase 4 — pending.**
 
 ## 13. Decisions log  *(append as you go)*
@@ -222,3 +222,6 @@ Next.js 15 scaffold, design tokens (both themes), next-themes theming (no flash,
 - Contact backend uses Next.js Server Actions (no separate API server) + Resend + Supabase.
 - Phase 2 keeps client work free of external URLs while allowing internal anonymized case-study routes. The optional Projects filter is deferred so the grid remains server-rendered with no unnecessary client boundary.
 - Project media uses a shared, design-token-matched placeholder asset until Hasham supplies final screenshots; every project already has its own image field and alt text for direct replacement.
+- Phase 3 keeps contact validation shared between client and server, submits through a Server Action, and performs Resend delivery before storing the lead with a server-only Supabase service-role client. The included SQL migration enables RLS and grants anonymous insert-only access with no read policy.
+- `CONTACT_FROM_EMAIL` is optional so Resend's onboarding sender can support local setup; production should set it to a verified sender identity.
+- Testimonials remain an honest NDA-safe placeholder instead of fabricated quotes, while the Skills section renders Simple Icons as token-colored inline SVGs.
