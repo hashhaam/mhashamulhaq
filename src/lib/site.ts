@@ -10,14 +10,14 @@ export const site = {
   url: "https://mhashamulhaq.com",
   language: "en",
   role: "Full-Stack Developer & AI Graduate",
-  tagline: "I build fast, SEO-ready web products that convert.",
+  tagline: "I build production web apps, end to end.",
   location: "Faisalabad, Pakistan",
   availability: "Available for roles & freelance",
 
   seo: {
     title: "M Hasham Ul Haq · Full-Stack Developer & AI Graduate",
     description:
-      "Backend-first full-stack developer and AI graduate building fast, SEO-ready products, APIs, integrations, and dependable deployments.",
+      "Full-stack developer and AI graduate building production web apps end to end, from APIs and databases to AI features, CI/CD, and deployment.",
     keywords: [
       "M Hasham Ul Haq",
       "full-stack developer",
@@ -30,9 +30,9 @@ export const site = {
     ],
     lastUpdated: "2026-08-24",
     openGraph: {
-      eyebrow: "Backend-first full-stack developer",
-      title: "Products built to perform—and convert.",
-      description: "Full-stack engineering · APIs · AI · SEO · deployment",
+      eyebrow: "Full-stack developer & AI graduate",
+      title: "Production web apps, end to end.",
+      description: "Full-stack engineering · APIs · databases · AI · deployment",
       alt: "M Hasham Ul Haq — Full-Stack Developer and AI Graduate",
     },
     breadcrumbs: {
@@ -61,11 +61,12 @@ export const site = {
   },
 
   subhead:
-    "Backend-first full-stack developer & AI graduate. At Webix Solutions I've contributed to a wide range of client projects — APIs, SEO, integrations, and deployment.",
+    "Full-stack developer (MERN, Next.js) and AI graduate. Over the past 7 months at Webix Solutions I've contributed to a wide range of client projects, owning everything from APIs and databases to deployment and CI/CD. I also build AI features with Python and FastAPI when a product needs them.",
 
   trajectory: [
     { month: "Feb", label: "backend" },
     { month: "Apr", label: "full-stack" },
+    { month: "team", label: "lead" },
   ],
 
   links: {
@@ -93,11 +94,11 @@ export const site = {
 
   /** Terminal "at a glance" summary card rows. */
   stats: [
-    { key: "contributed_to", value: "many client projects", accent: true },
-    { key: "time_at_webix", value: "4 months" },
-    { key: "ecommerce", value: "2+ yrs · PK · UAE · USA" },
-    { key: "focus", value: "backend · full-stack · growth" },
+    { key: "contributed_to", value: "25+ projects", accent: true },
+    { key: "time_at_webix", value: "7 months" },
+    { key: "focus", value: "full-stack · backend · AI features" },
     { key: "degree", value: "BS Artificial Intelligence, NTU" },
+    { key: "also", value: "e-commerce · 2+ yrs" },
   ],
 
   stack: [
@@ -118,9 +119,9 @@ export const site = {
     stats: {
       eyebrow: "Track record",
       items: [
-        { value: "40+", label: "projects contributed to" },
-        { value: "2+ yrs", label: "e-commerce & growth" },
-        { value: "3 markets", label: "Pakistan · UAE · USA" },
+        { value: "25+", label: "projects contributed to" },
+        { value: "7 months", label: "at Webix Solutions" },
+        { value: "AI features", label: "Python · FastAPI" },
         { value: "BS AI", label: "National Textile University" },
       ],
     },

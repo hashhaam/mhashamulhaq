@@ -105,7 +105,7 @@ src/
 ```
 name:         "M Hasham Ul Haq"
 role:         "Full-Stack Developer & AI Graduate"
-tagline:      "I build fast, SEO-ready web products that convert."
+tagline:      "I build production web apps, end to end."
 location:     "Faisalabad, Pakistan"
 availability: "Available for roles & freelance"
 links:
@@ -113,16 +113,18 @@ links:
   linkedin: "https://www.linkedin.com/in/hasham-ul-haq-2770b0248/"
   email:    "hashamulhaq068@gmail.com"
   phone:    "+923203487887"   // optional on public site
-subhead: "Backend-first full-stack developer & AI graduate. In four months at
-          Webix Solutions I've helped ship 40+ projects — APIs, SEO,
-          integrations, and deployment."
-trajectory: "Feb backend → Mar team lead → Jun full-stack"
+subhead: "Full-stack developer (MERN, Next.js) and AI graduate. Over the past
+          7 months at Webix Solutions I've contributed to a wide range of client
+          projects, owning everything from APIs and databases to deployment and
+          CI/CD. I also build AI features with Python and FastAPI when a product
+          needs them."
+trajectory: "Feb backend → Apr full-stack → team lead"
 stats:
-  projects_shipped: "40+"
-  time_at_webix:    "4 months"
-  ecommerce:        "2+ yrs · PK · UAE · USA"
-  focus:            "backend · full-stack · growth"
+  contributed_to: "25+ projects"
+  time_at_webix:  "7 months"
+  focus:          "full-stack · backend · AI features"
   degree:           "BS Artificial Intelligence, NTU"
+  also:             "e-commerce · 2+ yrs"
 stack: ["Next.js","React","TypeScript","FastAPI","Node.js","Supabase",
         "PostgreSQL","MongoDB","Tailwind","Vercel","Flutter"]
 skills:
@@ -157,7 +159,7 @@ Next.js 15 scaffold, design tokens (both themes), next-themes theming (no flash,
 
 ### ✅ Phase 2 — About + Projects (DONE)
 **About (`/about`) — scroll-driven story:**
-- Narrative arc: NTU (BS AI) → Webix backend (Feb) → Team Lead (Mar) → Full-stack (Jun) → 2+ yrs e-commerce/ads.
+- Narrative arc: NTU (BS AI) → Webix backend (Feb) → Full-stack (Apr) → Team Lead → 2+ yrs e-commerce/ads.
 - Scroll-triggered reveals (Framer Motion `whileInView` / `useScroll`); a vertical timeline with mono date labels works well. Keep warm-dark/amber language.
 - Sections: intro → the journey/timeline → what I do (full-stack + growth) → approach/values → closing CTA ("Let's work together" → `/contact").
 - Reuse `Reveal`, `Section`, `Container`, `Button`. Export page `metadata`.
@@ -212,6 +214,7 @@ Next.js 15 scaffold, design tokens (both themes), next-themes theming (no flash,
 - **2026-06-21 — Phase 2 complete.** About journey, capabilities, approach, and CTA; typed personal + anonymized client project data; reusable cards; projects grid; eight static detail routes; and a three-project Home preview on `feat/phase-2`. Token-matched screenshot placeholder added until final project media is supplied. Build clean and responsive dark/light browser verification completed.
 - **2026-08-24 — Phase 3 complete.** Production contact flow with react-hook-form + shared zod validation, honeypot, best-effort IP rate limiting, Resend delivery, and Supabase lead storage; migration includes RLS with anonymous insert-only access. Home now includes the Stats, About, Skills, Services, Testimonials placeholder, and Contact CTA sections with crisp Simple Icons SVGs. Build/lint clean; responsive dark/light browser verification completed on `feat/phase-3`.
 - **2026-08-24 — Phase 4 complete and production-ready.** Added canonical, Open Graph, Twitter, and keyword metadata for every page; Person, WebSite, CreativeWork, and BreadcrumbList JSON-LD; sitemap and robots routes; responsive custom 404; root and per-project generated social images; keyboard skip navigation; and image/reveal loading polish. Mobile production Lighthouse: Performance 96, Accessibility 100, Best Practices 100, SEO 100 (LCP 2.8s, CLS 0). Build/lint clean on `feat/phase-4`; Vercel GitHub preview deployed successfully for PR #5. Production promotion follows merge; custom-domain DNS and production contact secrets remain owner/account setup.
+- **2026-08-24 — Home positioning refreshed.** Hero and supporting stats now present a full-stack developer + AI engineer profile: 25+ contributed projects, seven months at Webix, April full-stack progression, and Python/FastAPI AI features. E-commerce remains secondary, and the non-functional CV action remains removed. Design tokens, layout, typography, and component structure are unchanged.
 
 ## 13. Decisions log  *(append as you go)*
 
@@ -226,6 +229,7 @@ Next.js 15 scaffold, design tokens (both themes), next-themes theming (no flash,
 - `CONTACT_FROM_EMAIL` is optional so Resend's onboarding sender can support local setup; production should set it to a verified sender identity.
 - Testimonials remain an honest NDA-safe placeholder instead of fabricated quotes, while the Skills section renders Simple Icons as token-colored inline SVGs.
 - Phase 4 uses `mhashamulhaq.com` as the single canonical origin. DNS is not configured yet, so the domain must be attached after the Vercel project is available in Hasham's personal scope.
+- Homepage positioning now leads with end-to-end full-stack delivery and AI features; e-commerce experience is retained only as secondary context. The verified career timeline is Backend (Feb) → Full-stack (Apr) → Team Lead.
 - Schema.org project entries use `CreativeWork` (plus `BreadcrumbList`) rather than inventing a non-standard `Project` type; anonymized client entries expose no client identity or external URL.
 - Open Graph previews are generated with `next/og` in the default Node.js runtime using the locked warm-dark tokens; project routes receive their own title and summary image.
 - The optional hero 3D accent was deliberately skipped because it adds runtime and LCP cost without improving the portfolio's conversion goal. Above-the-fold reveal content remains paintable before animation, which improved mobile LCP.

@@ -20,8 +20,8 @@ export function Hero() {
 
           <Reveal delay={0.25} critical>
             <h1 className="mb-6 font-display text-[clamp(38px,6vw,62px)] font-semibold leading-[1.04] tracking-[-0.03em]">
-              I build fast, SEO-ready web products that{" "}
-              <span className="text-accent-text">convert.</span>
+              I build production web apps,{" "}
+              <span className="text-accent-text">end to end.</span>
             </h1>
           </Reveal>
 
